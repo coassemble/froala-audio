@@ -1,4 +1,4 @@
-# froala-audio
+# froala-audio [![npm](https://img.shields.io/npm/v/froala-audio.svg)](https://www.npmjs.com/package/froala-audio) [![license](https://img.shields.io/github/license/ecoach-lms/froala-audio.svg)](LICENSE.md)
 
 A simple plugin for [Froala WYSIWYG Editor](https://www.froala.com/wysiwyg-editor/) that allows users to insert and customise audio players in the editor.
 
