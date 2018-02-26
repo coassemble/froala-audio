@@ -1,0 +1,30 @@
+extends: eslint:recommended
+env:
+  browser: true
+parserOptions:
+  ecmaVersion: 6
+rules:
+  array-bracket-spacing: error
+  block-spacing: error
+  brace-style: [error, 1tbs]
+  comma-spacing: [error, {before: false, after: true}]
+  comma-style: [error, last]
+  eol-last: error
+  indent: [error, 2]
+  func-call-spacing: error
+  key-spacing: error
+  keyword-spacing: error
+  linebreak-style: [error, unix]
+  no-lonely-if: error
+  no-multiple-empty-lines: error
+  no-negated-condition: error
+  no-trailing-spaces: error
+  no-unneeded-ternary: error
+  no-whitespace-before-property: error
+  quotes: [error, single, {allowTemplateLiterals: true, avoidEscape: true}]
+  semi: error
+  semi-spacing: error
+  semi-style: error
+  space-before-blocks: error
+  space-in-parens: error
+  unicode-bom: error

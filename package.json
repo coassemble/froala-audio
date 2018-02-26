@@ -1,0 +1,20 @@
+{
+	"name": "froala-audio",
+	"description": "Plugin for inserting and modifying audio players with Froala WYSIWYG Editor.",
+	"version": "1.0.0",
+	"main": "./froala-audio.js",
+	"repository": "https://github.com/ecoach-lms/froala-audio",
+	"keywords": [
+		"froala",
+		"froala-plugin",
+		"browser",
+		"wysiwyg",
+		"rich",
+		"editor",
+		"audio"
+	],
+	"license": "MIT",
+	"devDependencies": {
+		"eslint": "^4.18.1"
+	}
+}

@@ -1,0 +1,30 @@
+.fr-audio {
+  display: block;
+  clear: both;
+  position: relative;
+  text-align: center;
+}
+.fr-audio audio {
+  box-sizing: content-box;
+  border: solid 1px transparent;
+}
+.fr-audio:hover audio {
+  border-color: #af4f4b;
+}
+.fr-audio.fr-active audio {
+  border-color: #1e88e5;
+}
+.fr-element .fr-audio::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+  display: block;
+  background: rgba(0, 0, 0, 0);
+}
+.fr-element .fr-audio.fr-active::after {
+  display: none;
+}
