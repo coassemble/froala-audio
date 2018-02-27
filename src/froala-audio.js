@@ -31,6 +31,7 @@
     };
 
     let currentAudio = null;
+
     const stopEditing = function(audio) {
       if (!audio) audio = editor.$el.find('.fr-audio');
       if (!audio.length) return;
