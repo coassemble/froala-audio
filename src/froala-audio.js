@@ -6,7 +6,7 @@
   });
   $.extend($.FE.DEFAULTS, {
     audioAllowedTypes: ['mp3', 'mpeg', 'x-m4a'],
-    audioEditButtons: ['audioReplace', 'audioRemove', '|', 'audioAlign'],
+    audioEditButtons: ['audioReplace', 'audioRemove', '|', 'audioAutoplay', 'audioAlign'],
     audioInsertButtons: ['audioBack', '|', 'audioByURL', 'audioUpload'],
     audioMove: true,
     audioSplitHTML: false,
@@ -391,6 +391,12 @@
         }
       },
 
+      autoplay() {
+        if (!currentAudio) return false;
+        const $player = currentAudio.find('audio');
+        const isAuto = $player.prop('autoplay');
+        $player.prop({autoplay: !isAuto});
+      },
       align(val) {
         if (!currentAudio) return false;
         // Center is the default, so just clear the alignment if that's what was requested.
@@ -399,6 +405,12 @@
         // Changing the alignment will almost certainly move the actual audio player away from the edit popup,
         // so we re-display the popup to get them back in sync.
         editor.audio.showEditPopup(currentAudio);
+      },
+
+      refreshAutoplayButton($btn) {
+        if (!currentAudio) return false;
+        const isAuto = currentAudio.find('audio').prop('autoplay');
+        $btn.toggleClass('fr-active', isAuto).attr('aria-pressed', isAuto);
       },
       refreshAlignButton($btn) {
         if (!currentAudio) return false;
@@ -693,6 +705,18 @@
     },
     refreshOnShow($btn, $dropdown) {
       this.audio.refreshAlignDropdown($btn, $dropdown);
+    }
+  });
+
+  $.FE.DefineIcon('audioAutoplay', {NAME: 'play-circle'});
+  $.FE.RegisterCommand('audioAutoplay', {
+    title: 'Autoplay',
+    toggle: true,
+    callback() {
+      this.audio.autoplay();
+    },
+    refresh($btn) {
+      this.audio.refreshAutoplayButton($btn);
     }
   });
 
