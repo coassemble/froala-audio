@@ -288,7 +288,7 @@
       const $audio = replace ? replaceAudio(currentAudio, link) : addNewAudio(link, data);
 
       editor.undo.saveStep();
-      editor.events.trigger(replace ? 'audio.replaced' : 'audio.inserted', [$audio]);
+      editor.events.trigger(replace ? 'audio.replaced' : 'audio.inserted', [$audio, data]);
     };
 
     let touchScroll = false;
