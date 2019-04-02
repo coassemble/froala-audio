@@ -207,8 +207,8 @@
       return false;
     };
 
-    const addNewAudio = function(src, data) {
-      if (!data) data = {};
+    const addNewAudio = function(src, response) {
+      const data = parseResponse(response) || {};
       const $audio = $('<span contenteditable="false" draggable="true" class="fr-audio fr-uploading">' +
                 '<audio controls="controls" controlsList="nodownload"></audio>' +
             '</span>');
@@ -279,16 +279,16 @@
       return $audio;
     };
 
-    const insertHtmlAudio = function(link, data) {
+    const insertHtmlAudio = function(link, response) {
       editor.edit.on();
       showProgressMessage('Loading audio');
       showProgressBar('Loading audio');
 
       const replace = !!currentAudio;
-      const $audio = replace ? replaceAudio(currentAudio, link) : addNewAudio(link, data);
+      const $audio = replace ? replaceAudio(currentAudio, link) : addNewAudio(link, response);
 
       editor.undo.saveStep();
-      editor.events.trigger(replace ? 'audio.replaced' : 'audio.inserted', [$audio, data]);
+      editor.events.trigger(replace ? 'audio.replaced' : 'audio.inserted', [$audio, response]);
     };
 
     let touchScroll = false;
@@ -547,8 +547,7 @@
           }
 
           try {
-            const resp = parseResponse(responseText);
-            if (resp) insertHtmlAudio(resp.link, resp);
+            if (resp) insertHtmlAudio(resp.link, responseText);
           } catch (ex) {
             // Bad response.
             throwError(BAD_RESPONSE, response || responseText);
