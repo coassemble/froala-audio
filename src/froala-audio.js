@@ -547,7 +547,7 @@
           }
 
           try {
-            if (resp) insertHtmlAudio(resp.link, responseText);
+            if (response) insertHtmlAudio(response.link, responseText);
           } catch (ex) {
             // Bad response.
             throwError(BAD_RESPONSE, response || responseText);
