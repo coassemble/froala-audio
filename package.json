@@ -15,13 +15,14 @@
 	],
 	"license": "MIT",
 	"devDependencies": {
-		"babel-cli": "^6.26.0",
-		"babel-preset-env": "^1.6.1",
-		"eslint": "^4.18.1"
+		"@babel/cli": "^7.4.4",
+		"@babel/core": "^7.4.5",
+		"@babel/preset-env": "^7.4.5",
+		"eslint": "^5.16.0"
 	},
 	"babel": {
 		"presets": [
-			"env"
+			"@babel/preset-env"
 		]
 	},
 	"scripts": {
