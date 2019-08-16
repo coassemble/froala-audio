@@ -547,6 +547,7 @@
           }
 
           try {
+            response = parseResponse(response);//should parse the response before you can use the link
             if (response) insertHtmlAudio(response.link, responseText);
           } catch (ex) {
             // Bad response.
