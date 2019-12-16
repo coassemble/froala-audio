@@ -3,7 +3,7 @@
 	"description": "Plugin for inserting and modifying audio players with Froala WYSIWYG Editor.",
 	"version": "1.0.6",
 	"main": "./froala-audio.js",
-	"repository": "https://github.com/ecoach-lms/froala-audio",
+	"repository": "https://github.com/coassemble/froala-audio",
 	"keywords": [
 		"froala",
 		"froala-plugin",
