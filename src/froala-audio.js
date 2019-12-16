@@ -547,7 +547,8 @@
           }
 
           try {
-            if (response) insertHtmlAudio(response.link, responseText);
+            const resp = parseResponse(response);
+            if (resp) insertHtmlAudio(resp.link, responseText);
           } catch (ex) {
             // Bad response.
             throwError(BAD_RESPONSE, response || responseText);
