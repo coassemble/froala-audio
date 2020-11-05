@@ -1,10 +1,10 @@
-(function($, _) {
+(function(FE, $, _) {
   'use strict';
-  $.extend($.FE.POPUP_TEMPLATES, {
+  $.extend(FE.POPUP_TEMPLATES, {
     'audio.insert': '[_BUTTONS_][_BY_URL_LAYER_][_UPLOAD_LAYER_][_PROGRESS_BAR_]',
     'audio.edit': '[_BUTTONS_]'
   });
-  $.extend($.FE.DEFAULTS, {
+  $.extend(FE.DEFAULTS, {
     audioAllowedTypes: ['mp3', 'mpeg', 'x-m4a'],
     audioEditButtons: ['audioReplace', 'audioRemove', '|', 'audioAutoplay', 'audioAlign'],
     audioInsertButtons: ['audioBack', '|', 'audioByURL', 'audioUpload'],
@@ -17,7 +17,7 @@
     audioUploadURL: 'https://i.froala.com/upload'
   });
 
-  $.FE.PLUGINS.audio = function(editor) {
+  FE.PLUGINS.audio = function(editor) {
     const MISSING_LINK = 1;
     const ERROR_DURING_UPLOAD = 2;
     const BAD_RESPONSE = 4;
@@ -608,8 +608,8 @@
     };
   };
 
-  $.FE.DefineIcon('insertAudio', {NAME: 'volume-up'});
-  $.FE.RegisterCommand('insertAudio', {
+  FE.DefineIcon('insertAudio', {NAME: 'volume-up'});
+  FE.RegisterCommand('insertAudio', {
     title: 'Insert Audio',
     undo: false,
     focus: true,
@@ -626,8 +626,8 @@
     plugin: 'audio'
   });
 
-  $.FE.DefineIcon('audioByURL', {NAME: 'link'});
-  $.FE.RegisterCommand('audioByURL', {
+  FE.DefineIcon('audioByURL', {NAME: 'link'});
+  FE.RegisterCommand('audioByURL', {
     title: 'By URL',
     undo: false,
     focus: false,
@@ -640,8 +640,8 @@
     }
   });
 
-  $.FE.DefineIcon('audioUpload', {NAME: 'upload'});
-  $.FE.RegisterCommand('audioUpload', {
+  FE.DefineIcon('audioUpload', {NAME: 'upload'});
+  FE.RegisterCommand('audioUpload', {
     title: 'Upload Audio',
     undo: false,
     focus: false,
@@ -654,7 +654,7 @@
     }
   });
 
-  $.FE.RegisterCommand('audioDismissError', {
+  FE.RegisterCommand('audioDismissError', {
     title: 'OK',
     undo: false,
     callback() {
@@ -662,7 +662,7 @@
     }
   });
 
-  $.FE.RegisterCommand('audioInsertByURL', {
+  FE.RegisterCommand('audioInsertByURL', {
     undo: true,
     focus: true,
     callback() {
@@ -670,13 +670,13 @@
     }
   });
 
-  $.FE.DefineIcon('audioAlignLeft', { NAME: 'align-left' });
-  $.FE.DefineIcon('audioAlignRight', { NAME: 'align-right' });
+  FE.DefineIcon('audioAlignLeft', { NAME: 'align-left' });
+  FE.DefineIcon('audioAlignRight', { NAME: 'align-right' });
   // For consistency with the video plugin, we use the align-justify icon for alignCenter. :(
-  $.FE.DefineIcon('audioAlignCenter', { NAME: 'align-justify' });
+  FE.DefineIcon('audioAlignCenter', { NAME: 'align-justify' });
 
-  $.FE.DefineIcon('audioAlign', { NAME: 'align-center' });
-  $.FE.RegisterCommand('audioAlign', {
+  FE.DefineIcon('audioAlign', { NAME: 'align-center' });
+  FE.RegisterCommand('audioAlign', {
     type: 'dropdown',
     title: 'Align',
     options: {
@@ -694,7 +694,7 @@
             </li>`;
 
       return `<ul class="fr-dropdown-list" role="presentation">
-                ${_.map($.FE.COMMANDS.audioAlign.options, mkOption).join('\n')}
+                ${_.map(FE.COMMANDS.audioAlign.options, mkOption).join('\n')}
             </ul>`;
     },
     callback(cmd, val) {
@@ -708,8 +708,8 @@
     }
   });
 
-  $.FE.DefineIcon('audioAutoplay', {NAME: 'play-circle'});
-  $.FE.RegisterCommand('audioAutoplay', {
+  FE.DefineIcon('audioAutoplay', {NAME: 'play-circle'});
+  FE.RegisterCommand('audioAutoplay', {
     title: 'Autoplay',
     toggle: true,
     callback() {
@@ -720,8 +720,8 @@
     }
   });
 
-  $.FE.DefineIcon('audioReplace', {NAME: 'exchange'});
-  $.FE.RegisterCommand('audioReplace', {
+  FE.DefineIcon('audioReplace', {NAME: 'exchange'});
+  FE.RegisterCommand('audioReplace', {
     title: 'Replace',
     undo: false,
     focus: false,
@@ -732,16 +732,16 @@
     }
   });
 
-  $.FE.DefineIcon('audioRemove', {NAME: 'trash'});
-  $.FE.RegisterCommand('audioRemove', {
+  FE.DefineIcon('audioRemove', {NAME: 'trash'});
+  FE.RegisterCommand('audioRemove', {
     title: 'Remove',
     callback() {
       this.audio.remove();
     }
   });
 
-  $.FE.DefineIcon('audioBack', { NAME: 'arrow-left' });
-  $.FE.RegisterCommand('audioBack', {
+  FE.DefineIcon('audioBack', { NAME: 'arrow-left' });
+  FE.RegisterCommand('audioBack', {
     title: 'Back',
     undo: false,
     focus: false,
@@ -754,8 +754,8 @@
     }
   });
 
-  if (!$.FE.RegisterQuickInsertButton) return;
-  $.FE.RegisterQuickInsertButton('audio', {
+  if (!FE.RegisterQuickInsertButton) return;
+  FE.RegisterQuickInsertButton('audio', {
     icon: 'insertAudio',
     requiredPlugin: 'audio',
     title: 'Insert Audio',
@@ -765,4 +765,4 @@
       if (src) this.audio.insertByURL(src);
     }
   });
-})(window.jQuery, window._);
+})(window.FroalaEditor || window.jQuery.FE, window.jQuery, window._);
