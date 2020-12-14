@@ -141,6 +141,7 @@
       bindInsertEvents($popup);
       return $popup;
     };
+    /* eslint-enable camelcase */
 
     const initEditPopup = function() {
       const buttonSpec = editor.opts.audioEditButtons;
@@ -149,7 +150,6 @@
             </div>`;
       return editor.popups.create('audio.edit', {buttons});
     };
-    /* eslint-enable camelcase */
 
     const showProgressBar = function(message) {
       const $popup = editor.popups.get('audio.insert') || initInsertPopup();
