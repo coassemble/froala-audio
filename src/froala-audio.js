@@ -92,7 +92,7 @@
     };
 
     const refreshInsertPopup = function() {
-      const $popup = editor.popups.get('audio.insert');
+      const $popup = $(editor.popups.get('audio.insert'));
       const $inputs = $popup.find('input, button');
       $inputs.prop('disabled', false).val('').trigger('change');
     };
@@ -573,7 +573,7 @@
         editor.edit.off();
         editor.events.enableBlur();
 
-        const $popup = editor.popups.get('audio.insert');
+        const $popup = $(editor.popups.get('audio.insert'));
         if ($popup) {
           $popup.off('abortUpload').on('abortUpload', function() {
             if (xhr.readyState !== 4) xhr.abort();
