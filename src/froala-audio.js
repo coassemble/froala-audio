@@ -17,6 +17,12 @@
     audioUploadURL: 'https://i.froala.com/upload'
   });
 
+  // This SVG icon is licensed under Apache 2.0 and was retrieved from
+  // https://material.io/resources/icons/?search=audio&icon=volume_up&style=baseline
+  $.extend(FE.SVG, {
+    insertAudio: 'M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z'
+  });
+
   FE.PLUGINS.audio = function(editor) {
     const MISSING_LINK = 1;
     const ERROR_DURING_UPLOAD = 2;
@@ -608,7 +614,7 @@
     };
   };
 
-  FE.DefineIcon('insertAudio', {NAME: 'volume-up', FA5NAME: 'volume-up', template: 'font_awesome'});
+  FE.DefineIcon('insertAudio', {NAME: 'volume-up', FA5NAME: 'volume-up', SVG_KEY: 'insertAudio'});
   FE.RegisterCommand('insertAudio', {
     title: 'Insert Audio',
     undo: false,
