@@ -416,7 +416,7 @@
         if (!currentAudio) return false;
         const align = currentAudio.css('textAlign') || 'center';
         // This is copied from how the video plugin does it. Yes, it's gross.
-        $btn.children(':first').replaceWith(editor.icon.create('audioAlign' + _.capitalize(align)));
+        $btn.children().first().replaceWith(editor.icon.create('audioAlign' + _.capitalize(align)));
       },
       refreshAlignDropdown($btn, $dropdown) {
         if (!currentAudio) return;
