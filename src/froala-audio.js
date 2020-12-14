@@ -608,7 +608,7 @@
     };
   };
 
-  FE.DefineIcon('insertAudio', {NAME: 'volume-up', template: 'font_awesome'});
+  FE.DefineIcon('insertAudio', {NAME: 'volume-up', FA5NAME: 'volume-up', template: 'font_awesome'});
   FE.RegisterCommand('insertAudio', {
     title: 'Insert Audio',
     undo: false,
@@ -626,7 +626,7 @@
     plugin: 'audio'
   });
 
-  FE.DefineIcon('audioByURL', {NAME: 'link', template: 'font_awesome'});
+  FE.DefineIcon('audioByURL', {NAME: 'link', SVG_KEY: 'insertLink'});
   FE.RegisterCommand('audioByURL', {
     title: 'By URL',
     undo: false,
@@ -640,7 +640,7 @@
     }
   });
 
-  FE.DefineIcon('audioUpload', {NAME: 'upload', template: 'font_awesome'});
+  FE.DefineIcon('audioUpload', {NAME: 'upload', SVG_KEY: 'upload'});
   FE.RegisterCommand('audioUpload', {
     title: 'Upload Audio',
     undo: false,
@@ -670,12 +670,12 @@
     }
   });
 
-  FE.DefineIcon('audioAlignLeft', {NAME: 'align-left', template: 'font_awesome'});
-  FE.DefineIcon('audioAlignRight', {NAME: 'align-right', template: 'font_awesome'});
+  FE.DefineIcon('audioAlignLeft', {NAME: 'align-left', SVG_KEY: 'alignLeft'});
+  FE.DefineIcon('audioAlignRight', {NAME: 'align-right', SVG_KEY: 'alignRight'});
   // For consistency with the video plugin, we use the align-justify icon for alignCenter. :(
-  FE.DefineIcon('audioAlignCenter', {NAME: 'align-justify', template: 'font_awesome'});
+  FE.DefineIcon('audioAlignCenter', {NAME: 'align-justify', SVG_KEY: 'alignJustify'});
 
-  FE.DefineIcon('audioAlign', {NAME: 'align-center', template: 'font_awesome'});
+  FE.DefineIcon('audioAlign', {NAME: 'align-center', SVG_KEY: 'alignCenter'});
   FE.RegisterCommand('audioAlign', {
     type: 'dropdown',
     title: 'Align',
@@ -708,7 +708,7 @@
     }
   });
 
-  FE.DefineIcon('audioAutoplay', {NAME: 'play-circle', template: 'font_awesome'});
+  FE.DefineIcon('audioAutoplay', {NAME: 'play-circle', SVG_KEY: 'autoplay'});
   FE.RegisterCommand('audioAutoplay', {
     title: 'Autoplay',
     toggle: true,
@@ -720,7 +720,7 @@
     }
   });
 
-  FE.DefineIcon('audioReplace', {NAME: 'exchange', template: 'font_awesome'});
+  FE.DefineIcon('audioReplace', {NAME: 'exchange', FA5NAME: 'exchange-alt', SVG_KEY: 'replaceImage'});
   FE.RegisterCommand('audioReplace', {
     title: 'Replace',
     undo: false,
@@ -732,7 +732,7 @@
     }
   });
 
-  FE.DefineIcon('audioRemove', {NAME: 'trash', template: 'font_awesome'});
+  FE.DefineIcon('audioRemove', {NAME: 'trash', SVG_KEY: 'remove'});
   FE.RegisterCommand('audioRemove', {
     title: 'Remove',
     callback() {
@@ -740,7 +740,7 @@
     }
   });
 
-  FE.DefineIcon('audioBack', {NAME: 'arrow-left', template: 'font_awesome'});
+  FE.DefineIcon('audioBack', {NAME: 'arrow-left', SVG_KEY: 'back'});
   FE.RegisterCommand('audioBack', {
     title: 'Back',
     undo: false,
